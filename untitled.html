@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>He</title>
+</head>
+<body>
+	<img id="imgOne" src="source.jpg"/>
+<canvas id="canvas" width=240 height=240 style="background-color:#808080;">
+</canvas>
+<p></p>
+<a id="btnDownload" download="myImage.png">Download to myImage.jpg</a>
+
+<button onclick="myFunction()">Render</button> 
+<button onclick="download_img()">Download</button> 
+<script type="text/javascript">
+
+var imgYea = document.getElementById("imgOne");
+	var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var ox = canvas.width / 2;
+var oy = canvas.height / 2;
+
+function download_img()
+{
+   alert("hi");
+  var imageURI = canvas.toDataURL("image/png", 0.2);
+  alert(imageURI);
+  document.getElementById("btnDownload").href = imageURI;
+};
+
+function myFunction()
+{
+  ctx.font = "42px serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillStyle = "#800";
+
+  ctx.fillRect(ox / 2, oy / 2, ox, oy);
+  ctx.fillText(document.getElementById("txtOne").value, 10, 50);
+
+  ctx.drawImage(imgYea, 20, 20, 20 ,29);
+}
+
+</script>
+<input name="txtOne" id="txtOne" type="text" style="z-index:101; position:absolute; top:10px; left:10px;"/>
+
+</body>
+</html>
+
